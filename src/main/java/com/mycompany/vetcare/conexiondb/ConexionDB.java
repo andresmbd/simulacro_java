@@ -1,6 +1,16 @@
-
 package com.mycompany.vetcare.conexiondb;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+
 public class ConexionDB {
-    String url = "jdbc:postgresql://";
+    private static final String URL = "jdbc:postgresql://localhost:5432/vetcare_db";
+    private static final String USER= "postgres";
+    private static final String PASS = "postgres";
+    
+    public static Connection conectarDB() throws SQLException{
+        return DriverManager.getConnection(URL,USER,PASS);
+    }
 }

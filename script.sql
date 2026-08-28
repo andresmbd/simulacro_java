@@ -1,5 +1,5 @@
 CREATE TABLE owners(
-	id SERIAL PRIMARY key,
+	id SERIAL PRIMARY KEY,
 	id_type VARCHAR(100) NOT NULL,
 	id_number VARCHAR(100) NOT NULL UNIQUE,
 	full_name VARCHAR(100) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE owners(
 );
 
 CREATE TABLE pets(
-	id SERIAL PRIMARY key,
+	id SERIAL PRIMARY KEY,
 	name VARCHAR(100) NOT NULL,
 	species VARCHAR(100) NOT NULL,
 	breed VARCHAR(100) NOT NULL,
@@ -27,8 +27,8 @@ CREATE TABLE pets(
 );
 
 CREATE TABLE veterinarians(
-	id SERIAL PRIMARY key,
-	id_number id_number VARCHAR(100) NOT NULL UNIQUE,
+	id SERIAL PRIMARY KEY,
+	id_number VARCHAR(100) NOT NULL UNIQUE,
 	full_name VARCHAR(100) NOT NULL,
 	professional_license VARCHAR(100) NOT NULL UNIQUE,
 	specialty VARCHAR(100) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE veterinarians(
 );
 
 CREATE TABLE appointments(
-	id SERIAL PRIMARY key,
+	id SERIAL PRIMARY KEY,
 	pet_id INT NOT NULL,
 	veterinarian_id INT NOT NULL,
 	appointment_date DATE NOT NULL,
@@ -86,5 +86,21 @@ CREATE TABLE medical_records(
 	FOREIGN KEY (appointment_id) REFERENCES appointments (id),
 	FOREIGN KEY (pet_id) REFERENCES pets (id),
 	FOREIGN KEY (veterinarian_id) REFERENCES veterinarians (id)
+);
+
+CREATE TABLE medical_record_medicines(
+	medical_record_id INT NOT NULL,
+	medicine_id INT NOT NULL,
+
+	FOREIGN KEY (medical_record_id) REFERENCES medical_records(id),
+	FOREIGN KEY(medicine_id) REFERENCES medicines(id)
+);
+
+
+CREATE TABLE users(
+	id SERIAL PRIMARY KEY,
+	username VARCHAR(100) NOT NULL,
+	password VARCHAR(100) NOT NULL,
+	role VARCHAR (20) CHECK (role in ('ADMIN', 'RECEP'))
 );
 

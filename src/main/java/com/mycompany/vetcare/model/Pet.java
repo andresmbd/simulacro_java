@@ -16,7 +16,12 @@ public class Pet {
     private Owner owner;
     private Boolean status;
     private LocalDateTime createdAt;
-
+    
+    /**
+     * Permite crear la instancia de la entidad cuando aún no tienes 
+     * todos los datos a la mano, e ir poblando sus atributos paso a
+     * paso mediante los setters
+     */
     public Pet() {
     }
     

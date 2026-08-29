@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface OwnerRepository {
     void registrarOwner(Owner owner);
-    List<Owner> consultarOwners();
+    List<Owner> listarTodos();
     void actualizarOwner(Owner owner);
     void cambiarEstadoOwner(Integer id, Boolean estado);
     Optional<Owner> buscarPorId(Integer id);

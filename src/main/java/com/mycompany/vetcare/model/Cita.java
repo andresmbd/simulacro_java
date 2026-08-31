@@ -1,12 +1,11 @@
-
 package com.mycompany.vetcare.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-
 public class Cita {
+
     private Integer id;
     private Pet pet;
     private Vet vet;
@@ -109,5 +108,5 @@ public class Cita {
         return "Cita{" + "id=" + id + ", pet=" + pet + ", vet=" + vet + ", date=" + date + ", time=" + time + ", reason=" + reason + ", status=" + status + ", createdAt=" + createdAt + '}';
     }
     
-    
+
 }

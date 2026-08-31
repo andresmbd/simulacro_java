@@ -62,8 +62,8 @@ CREATE TABLE medicines (
     id SERIAL PRIMARY KEY,
     code VARCHAR(30) UNIQUE NOT NULL,
     name VARCHAR(100) NOT NULL,
-    presentation VARCHAR(50) NOT NULL,
-    laboratory VARCHAR(50),
+    presentation VARCHAR(100) NOT NULL,
+    laboratory VARCHAR(100),
     stock INT NOT NULL CHECK (stock >= 0),
     min_stock INT DEFAULT 5 CHECK (min_stock >= 0),
     unit_price NUMERIC(10,2) CHECK (unit_price > 0),
@@ -101,6 +101,7 @@ CREATE TABLE users(
 	id SERIAL PRIMARY KEY,
 	username VARCHAR(100) NOT NULL,
 	password VARCHAR(100) NOT NULL,
-	role VARCHAR (20) CHECK (role in ('ADMIN', 'RECEP'))
+	role VARCHAR (20) CHECK (role in ('ADMIN', 'RECEPCIONISTA', 'VETERINARIO'))
 );
 
+select * from users;
